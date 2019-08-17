@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 
 const app = express()
-// stores express application as a variable called: app
+
 
 const port = process.env.PORT || 3000
 // allows heroku the ability to set port in production while default: 3000 for local dev
@@ -12,13 +12,11 @@ const port = process.env.PORT || 3000
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
-// define paths for Express config
+
 const publicDirectoryPath = path.join(__dirname, '../public')
-// sets the path for the public directory - serving client-side content
 const viewsPath = path.join(__dirname, '../templates/views')
-// sets the path we'd like express to use to serve up our handlebars views
 const partialsPath = path.join(__dirname, '../templates/partials')
-// defines the path to our partials files
+
 
 // setup handlebars engine and views location
 app.set('views', viewsPath)
@@ -28,13 +26,12 @@ app.set('view engine', 'hbs')
 hbs.registerPartials(partialsPath)
 // configures the partials path for handlebars
 
-// setup static directory server
+
 app.use(express.static(publicDirectoryPath))
-// provides server with absolute path to location for public content
+
 
 app.get('', (req, res) => {
   res.render('index', {
-    // res.render() is provided the filename we want handlebars to render.
     title: "Weather App",
     name: "G.Shah"
   })
@@ -65,7 +62,7 @@ app.get('/help/*', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-  if (!req.query.address) { // only runs if no query term is provided
+  if (!req.query.address) {
     return res.send({
       error: 'You must provide a address'
     })
@@ -75,12 +72,10 @@ app.get('/weather', (req, res) => {
   geocode(address, (error, { longitude, latitude, location } = {}) => {
     if (error) {
       return res.send({ error })
-      // returning to ensure application quits if error here.
     }
     forecast(latitude, longitude, (error, forecast) => {
       if (error) {
         return res.send({ error })
-        // returning to ensure application quits if error here.
       }
       res.send({
         forecast,
@@ -107,7 +102,6 @@ app.get('/weather', (req, res) => {
   })
 })
 
-// start server and provide it a port to listen to:
 app.listen(port, () => {
   console.log('server is up on ' + port)
 })
