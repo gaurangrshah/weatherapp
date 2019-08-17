@@ -9,13 +9,12 @@ Built with:
 Utilzes the DarkSky API for forecasts and the MapBox API to geocode and convert locations
 
 
-clone and run locally:
+### clone and run locally:
 ```
 npm i
 
 npm run dev
 ```
-
 
 Deployed using Heroku: https://dashboard.heroku.com/apps/x-code-weather
 
