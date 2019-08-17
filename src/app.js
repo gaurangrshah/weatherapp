@@ -4,6 +4,11 @@ const hbs = require('hbs')
 
 const app = express()
 // stores express application as a variable called: app
+
+const port = process.env.PORT || 3000
+// allows heroku the ability to set port in production while default: 3000 for local dev
+
+
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
@@ -126,6 +131,7 @@ app.get('/weather', (req, res) => {
 })
 
 // start server and provide it a port to listen to:
-app.listen(3000, () => {
-  console.log('server is up on port 3000')
+// app.listen(3000, () => {
+app.listen(port, () => {
+  console.log('server is up on ' + port)
 })
