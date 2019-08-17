@@ -100,29 +100,6 @@ app.get('*', (req, res) => {
 })
 
 
-
-// // used to handle routes.
-// app.get('', (req, res) => {
-//   // pass in the route and handle the request and response
-//   res.send('')
-//   // res.send allows server to send information back to the user.
-// })
-
-// app.get('/help', (req, res) => {
-//   res.send([{
-//     // this raw object get's automatically parsed to JSON in the browser
-//     name: 'Andrew',
-//     age: 27
-//   }, {
-//     name: 'Sarah',
-//     age: 23
-//   }])
-// })
-
-// app.get('/about', (req, res) => {
-//   res.send('')
-// })
-
 app.get('/weather', (req, res) => {
   res.send({
     forecast: "It's a beautiful day!",
@@ -131,7 +108,6 @@ app.get('/weather', (req, res) => {
 })
 
 // start server and provide it a port to listen to:
-// app.listen(3000, () => {
 app.listen(port, () => {
   console.log('server is up on ' + port)
 })

@@ -11,7 +11,6 @@ const geocode = (address, callback) => {
     if (error) {
       // if there is an error we use the callback to log a message, and explictly return the value of 'undefined'
       callback('Unable to connect to location services', undefined)
-
     } else if (body.features.length === 0) {
       callback('Unable to find location, please try another search', undefined)
 
