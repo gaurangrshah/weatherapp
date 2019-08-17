@@ -36,7 +36,7 @@ app.get('', (req, res) => {
   res.render('index', {
     // res.render() is provided the filename we want handlebars to render.
     title: "Weather App",
-    name: "Andrew"
+    name: "G.Shah"
   })
 })
 
@@ -44,14 +44,14 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about', {
     title: "About Me",
-    name: "Andrew"
+    name: "G.Shah"
   })
 })
 
 app.get('/help', (req, res) => {
   res.render('help', {
     title: "Help",
-    name: "Andrew",
+    name: "G.Shah",
     message: "Need some help? Well, you've come to the right place."
   })
 })
@@ -59,7 +59,7 @@ app.get('/help', (req, res) => {
 app.get('/help/*', (req, res) => {
   res.render('help', {
     title: "Help",
-    name: "Andrew",
+    name: "G.Shah",
     message: "Need some help? Well, let's get you there.."
   })
 })
@@ -94,7 +94,7 @@ app.get('/weather', (req, res) => {
 app.get('*', (req, res) => {
   res.render('help', {
     title: "Help",
-    name: "Andrew",
+    name: "G.Shah",
     message: "Cannot find the page you're looking for."
   })
 })
