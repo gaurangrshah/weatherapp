@@ -15,7 +15,7 @@ const forecast = (latitude, longitude, callback) => {
             callback('cannot locate forecast', undefined)
         } else {
             // passing in undefined as the first argument because we are setting the data argument this time and not the error for callback()
-            callback(undefined, daily.data[0] + 'It is currently ' + temperature + ' degrees out. ' + 'There is a ' + precipProbability + '% chance of rain.')
+            callback(undefined, daily.data[0] + 'It is currently ' + temperature + ' degrees out. ' + 'There is a ' + precipProbability + '% chance of rain...')
         }
     })
 
